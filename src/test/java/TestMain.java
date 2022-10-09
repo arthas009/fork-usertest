@@ -27,8 +27,10 @@ public class TestMain {
         //Cross browser selection section
         if (browserType.equals("Chrome"))
             driver = new CustomChromeDriver().getDriver();
-        else if (browserType.equals("Firefox"))
-            driver = new CustomFirefoxDriver().getDriver();
+        else if (browserType.equals("Firefox")) {
+            String firefoxBinaryPath = configurationReader.getVariable("FIREFOX_BINARY_PATH");
+            driver = new CustomFirefoxDriver(firefoxBinaryPath).getDriver();
+        }
 
         driver.get(testingMainURL);
 

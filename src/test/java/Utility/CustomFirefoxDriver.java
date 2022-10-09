@@ -15,10 +15,10 @@ import java.io.File;
 public class CustomFirefoxDriver {
     WebDriver customDriver;
 
-    public CustomFirefoxDriver() {
+    public CustomFirefoxDriver(String binaryPath) {
         System.setProperty("webdriver.gecko.driver", "BrowserDrivers/geckodriver.exe");
         FirefoxOptions options = new FirefoxOptions();
-        FirefoxBinary binary = new FirefoxBinary(new File("C:\\Program Files\\Mozilla Firefox\\firefox.exe"));
+        FirefoxBinary binary = new FirefoxBinary(new File(binaryPath));
         options.setBinary(binary);
         customDriver = new FirefoxDriver(options);
     }

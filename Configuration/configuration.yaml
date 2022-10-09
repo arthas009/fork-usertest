@@ -1,3 +1,4 @@
-BROWSER: Chrome
+BROWSER: Firefox
 BASE_URL: http://www.thefork.com
 TEST_OUTPUT_DIRECTORY: test-output
+FIREFOX_BINARY_PATH: C:\\Program Files\\Mozilla Firefox\\firefox.exe
