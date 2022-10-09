@@ -29,6 +29,7 @@ public class HomePageLogin extends HomePage {
     public void clickLogIn() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(logInButton));
+            wait.until(ExpectedConditions.elementToBeClickable(logInButton));
         } catch (TimeoutException e) {
             ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "loginButtonNotFound.png");
             ssHandler.screenshotError();
@@ -80,6 +81,7 @@ public class HomePageLogin extends HomePage {
     public void clickContinue() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(continueButton));
+            wait.until(ExpectedConditions.elementToBeClickable(continueButton));
         } catch (TimeoutException e) {
             ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "continueButtonNotFound.png");
             ssHandler.screenshotError();
@@ -94,6 +96,8 @@ public class HomePageLogin extends HomePage {
     public void clickPasswordContinue() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(continuePasswordButton));
+            wait.until(ExpectedConditions.elementToBeClickable(continuePasswordButton));
+
         } catch (TimeoutException e) {
             ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "passwordContinueButtonNotFound.png");
             ssHandler.screenshotError();

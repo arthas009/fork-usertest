@@ -13,7 +13,6 @@ import org.openqa.selenium.support.ui.Select;
  * This class is used to keep functions and locators about web elements after user logged in
  */
 public class HomePageUser extends HomePage {
-
     By personalInformationButton = By.xpath("//button[text() = 'My personal information']");
     By personalName = By.xpath("//input[@name = 'firstName']");
     By personalSurname = By.xpath("//input[@name = 'lastName']");
@@ -35,6 +34,7 @@ public class HomePageUser extends HomePage {
     public void clickOnPersonalInformation() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(personalInformationButton));
+            wait.until(ExpectedConditions.elementToBeClickable(personalInformationButton));
         } catch (TimeoutException e) {
             ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "personalInformationButtonNotFound.png");
             ssHandler.screenshotError();
@@ -50,6 +50,7 @@ public class HomePageUser extends HomePage {
     public void clickOnLogout() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(logoutButton));
+            wait.until(ExpectedConditions.elementToBeClickable(logoutButton));
         } catch (TimeoutException e) {
             ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "logOutButtonNotFound.png");
             ssHandler.screenshotError();

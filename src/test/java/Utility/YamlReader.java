@@ -22,7 +22,6 @@ public class YamlReader {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
         yamlMaps = (Map<String, Object>) yaml.load(yamlFile);
     }
 
