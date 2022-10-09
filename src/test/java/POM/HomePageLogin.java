@@ -7,6 +7,10 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+/**
+ * HomePageUser
+ * This class is used to keep functions and locators about web elements on main page and login window
+ */
 public class HomePageLogin extends HomePage {
     By logInButton = By.xpath("//button[@data-testid = 'user-space']");
     By emailInput = By.id("identification_email");

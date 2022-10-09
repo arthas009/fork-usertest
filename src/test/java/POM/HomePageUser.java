@@ -8,6 +8,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
+/**
+ * HomePageUser
+ * This class is used to keep functions and locators about web elements after user logged in
+ */
 public class HomePageUser extends HomePage {
 
     By personalInformationButton = By.xpath("//button[text() = 'My personal information']");

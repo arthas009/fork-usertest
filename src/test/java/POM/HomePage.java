@@ -11,6 +11,12 @@ import org.openqa.selenium.support.ui.FluentWait;
 
 import java.time.Duration;
 
+/**
+ * HomePage
+ * This class is used to keep functions and locators about web elements about main page
+ * It also has a default Fluent wait which is used by itself and child classes to wait elements to be visible.
+ * Fluent wait has 45 second timeout and polls every second
+ */
 public class HomePage {
     protected WebDriver driver;
     protected String test_output_directory;
