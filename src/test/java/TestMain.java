@@ -52,9 +52,6 @@ public class TestMain {
     }
 
     @Test(priority = 1)
-    /*
-    *
-    */
     public static void TestValidUserValues() {
         homePageUser = new HomePageUser(driver);
         homePageLogin.performLogin("yusufalti1997@gmail.com", "Yusuf1234.");

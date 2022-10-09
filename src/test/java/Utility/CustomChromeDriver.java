@@ -4,6 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+/**
+ * CustomChromeDriver
+ * This class is used when cross-browser tests are required. Check configuration .yaml file and Test suite setup to
+ * see how it works.
+ */
 public class CustomChromeDriver {
     WebDriver customDriver;
 

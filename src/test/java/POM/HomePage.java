@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
-import java.io.IOException;
 import java.time.Duration;
 
 public class HomePage {
@@ -28,16 +27,16 @@ public class HomePage {
         test_output_directory = YamlReader.getVariable("TEST_OUTPUT_DIRECTORY");
     }
 
+    /**
+     * acceptCookie
+     * Clicks on accept button when Accept Cookie window is shown
+     */
     public void acceptCookie() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(cookieAcceptButton));
         } catch (TimeoutException e) {
             ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "cookieButtonNotFound");
-            try {
-                ssHandler.screenshotError();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
+            ssHandler.screenshotError();
             return;
         }
         driver.findElement(cookieAcceptButton).click();

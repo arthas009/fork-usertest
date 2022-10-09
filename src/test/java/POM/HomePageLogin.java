@@ -7,8 +7,6 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.io.IOException;
-
 public class HomePageLogin extends HomePage {
     By logInButton = By.xpath("//button[@data-testid = 'user-space']");
     By emailInput = By.id("identification_email");
@@ -20,16 +18,16 @@ public class HomePageLogin extends HomePage {
         super(driver);
     }
 
+    /**
+     * clickLogIn
+     * Clicks on Login button
+     */
     public void clickLogIn() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(logInButton));
         } catch (TimeoutException e) {
             ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "loginButtonNotFound.png");
-            try {
-                ssHandler.screenshotError();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
+            ssHandler.screenshotError();
         }
         // To avoid stale element exception
         try {
@@ -39,68 +37,78 @@ public class HomePageLogin extends HomePage {
         }
     }
 
+    /**
+     * inputEmail
+     * Inputs text to e-mail input element
+     *
+     * @param email text to input
+     */
     public void inputEmail(String email) {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(emailInput));
         } catch (TimeoutException e) {
             ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "emailInputNotFound.png");
-            try {
-                ssHandler.screenshotError();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
+            ssHandler.screenshotError();
         }
         driver.findElement(emailInput).sendKeys(email);
     }
 
+    /**
+     * inputPassword
+     * Inputs password to password input element
+     *
+     * @param password text to input
+     */
     public void inputPassword(String password) {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(passwordInput));
         } catch (TimeoutException e) {
             ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "passwordInputNotFound.png");
-            try {
-                ssHandler.screenshotError();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
+            ssHandler.screenshotError();
         }
         driver.findElement(passwordInput).sendKeys(password);
     }
 
+    /**
+     * clickContinue
+     * Clicks on Continue button after e-mail is given
+     */
     public void clickContinue() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(continueButton));
         } catch (TimeoutException e) {
             ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "continueButtonNotFound.png");
-            try {
-                ssHandler.screenshotError();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
+            ssHandler.screenshotError();
         }
         driver.findElement(continueButton).click();
     }
 
+    /**
+     * clickContinue
+     * Clicks on Continue button after password is given
+     */
     public void clickPasswordContinue() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(continuePasswordButton));
         } catch (TimeoutException e) {
             ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "passwordContinueButtonNotFound.png");
-            try {
-                ssHandler.screenshotError();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
+            ssHandler.screenshotError();
         }
         driver.findElement(continuePasswordButton).click();
     }
 
+    /**
+     * performLogin
+     * Permorms end-to-end login
+     *
+     * @param username username to login
+     * @param password password of username
+     */
     public void performLogin(String username, String password) {
         clickLogIn();
         inputEmail(username);
         clickContinue();
         inputPassword(password);
         clickPasswordContinue();
-
     }
 }

@@ -8,8 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import java.io.IOException;
-
 public class HomePageUser extends HomePage {
 
     By personalInformationButton = By.xpath("//button[text() = 'My personal information']");
@@ -60,6 +58,7 @@ public class HomePageUser extends HomePage {
     /**
      * checkNameText
      * Checks the Name input text with the param text
+     *
      * @param text: text to compare
      * @return returns true if texts are same, false otherwise
      */
@@ -75,9 +74,10 @@ public class HomePageUser extends HomePage {
         return nameElement.getAttribute("value").equals(text);
     }
 
-    w/**
+    /**
      * checkSurnameText
      * Checks the Surname input text with the param text
+     *
      * @param text: text to compare
      * @return returns true if texts are same, false otherwise
      */
@@ -87,39 +87,44 @@ public class HomePageUser extends HomePage {
         } catch (TimeoutException e) {
             ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "surnameInputNotFound.png");
             ssHandler.screenshotError();
-
             return false;
         }
         WebElement surnameElement = driver.findElement(personalSurname);
         return surnameElement.getAttribute("value").equals(text);
     }
 
+    /**
+     * checkPhoneNo
+     * Checks the Phone no input text with the param text
+     *
+     * @param text: phone no text to compare
+     * @return returns true if texts are same, false otherwise
+     */
     public boolean checkPhoneNo(String text) {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(personalPhoneNo));
         } catch (TimeoutException e) {
             ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "phoneNoInputNotFound.png");
-            try {
-                ssHandler.screenshotError();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
+            ssHandler.screenshotError();
             return false;
         }
         WebElement phoneElement = driver.findElement(personalPhoneNo);
         return phoneElement.getAttribute("value").equals(text);
     }
 
+    /**
+     * checkPhoneExtension
+     * Checks the Phone extension input text with the param text
+     *
+     * @param text: phone extension text to compare
+     * @return returns true if texts are same, false otherwise
+     */
     public boolean checkPhoneExtension(String text) {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(personalPhoneExtension));
         } catch (TimeoutException e) {
             ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "phoneExtensionSelectNotFound.png");
-            try {
-                ssHandler.screenshotError();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
+            ssHandler.screenshotError();
             return false;
         }
         WebElement list = driver.findElement(personalPhoneExtension);
@@ -128,32 +133,38 @@ public class HomePageUser extends HomePage {
         return selection.getText().equals(text);
     }
 
+    /**
+     * checkDateDay
+     * Checks the day of the birthday date input text with the param text
+     *
+     * @param text: day of the birthday text to compare
+     * @return returns true if texts are same, false otherwise
+     */
     public boolean checkDateDay(String text) {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(dateDayInput));
         } catch (TimeoutException e) {
             ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "dateDayInputNotFound.png");
-            try {
-                ssHandler.screenshotError();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
+            ssHandler.screenshotError();
             return false;
         }
         WebElement dateDayElement = driver.findElement(dateDayInput);
         return dateDayElement.getAttribute("value").equals(text);
     }
 
+    /**
+     * checkDateMonth
+     * Checks the month of the birthday date input text with the param text
+     *
+     * @param text: month of the birthday text to compare
+     * @return returns true if texts are same, false otherwise
+     */
     public boolean checkDateMonth(String text) {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(dateMonthInput));
         } catch (TimeoutException e) {
             ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "dateMonthInputNotFound.png");
-            try {
-                ssHandler.screenshotError();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
+            ssHandler.screenshotError();
             return false;
         }
         WebElement list = driver.findElement(dateMonthInput);
@@ -162,16 +173,19 @@ public class HomePageUser extends HomePage {
         return selection.getText().equals(text);
     }
 
+    /**
+     * checkDateYear
+     * Checks the year of the birthday date input text with the param text
+     *
+     * @param text: year of the birthday text to compare
+     * @return returns true if texts are same, false otherwise
+     */
     public boolean checkDateYear(String text) {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(dateYearInput));
         } catch (TimeoutException e) {
             ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "dateYearInputNotFound.png");
-            try {
-                ssHandler.screenshotError();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
+            ssHandler.screenshotError();
             return false;
         }
         WebElement dateYearElement = driver.findElement(dateYearInput);

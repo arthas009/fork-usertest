@@ -7,6 +7,11 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.io.File;
 
+/**
+ * CustomFirefoxDriver
+ * This class is used when cross-browser tests are required. Check configuration .yaml file and Test suite setup to
+ * see how it works.
+ */
 public class CustomFirefoxDriver {
     WebDriver customDriver;
 
