@@ -27,13 +27,8 @@ public class HomePageLogin extends HomePage {
      * Clicks on Login button
      */
     public void clickLogIn() {
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(logInButton));
-            wait.until(ExpectedConditions.elementToBeClickable(logInButton));
-        } catch (TimeoutException e) {
-            ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "loginButtonNotFound.png");
-            ssHandler.screenshotError();
-        }
+        customWait.waitUntilElementIsVisibleAndClickable(logInButton,"loginButtonNotFound");
+
         // To avoid stale element exception
         try {
             driver.findElement(logInButton).click();
@@ -49,12 +44,7 @@ public class HomePageLogin extends HomePage {
      * @param email text to input
      */
     public void inputEmail(String email) {
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(emailInput));
-        } catch (TimeoutException e) {
-            ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "emailInputNotFound.png");
-            ssHandler.screenshotError();
-        }
+        customWait.waitUntilElementIsVisible(emailInput,"emailInputNotFound");
         driver.findElement(emailInput).sendKeys(email);
     }
 
@@ -65,12 +55,7 @@ public class HomePageLogin extends HomePage {
      * @param password text to input
      */
     public void inputPassword(String password) {
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(passwordInput));
-        } catch (TimeoutException e) {
-            ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "passwordInputNotFound.png");
-            ssHandler.screenshotError();
-        }
+        customWait.waitUntilElementIsVisible(passwordInput,"passwordInputNotFound");
         driver.findElement(passwordInput).sendKeys(password);
     }
 
@@ -79,13 +64,7 @@ public class HomePageLogin extends HomePage {
      * Clicks on Continue button after e-mail is given
      */
     public void clickContinue() {
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(continueButton));
-            wait.until(ExpectedConditions.elementToBeClickable(continueButton));
-        } catch (TimeoutException e) {
-            ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "continueButtonNotFound.png");
-            ssHandler.screenshotError();
-        }
+        customWait.waitUntilElementIsVisibleAndClickable(continueButton,"continueAcceptButtonNotFound");
         driver.findElement(continueButton).click();
     }
 
@@ -94,14 +73,7 @@ public class HomePageLogin extends HomePage {
      * Clicks on Continue button after password is given
      */
     public void clickPasswordContinue() {
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(continuePasswordButton));
-            wait.until(ExpectedConditions.elementToBeClickable(continuePasswordButton));
-
-        } catch (TimeoutException e) {
-            ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "passwordContinueButtonNotFound.png");
-            ssHandler.screenshotError();
-        }
+        customWait.waitUntilElementIsVisibleAndClickable(continuePasswordButton,"passwordContinueAcceptButtonNotFound");
         driver.findElement(continuePasswordButton).click();
     }
 

@@ -32,13 +32,7 @@ public class HomePageUser extends HomePage {
      * Clicks on the Personal information button
      */
     public void clickOnPersonalInformation() {
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(personalInformationButton));
-            wait.until(ExpectedConditions.elementToBeClickable(personalInformationButton));
-        } catch (TimeoutException e) {
-            ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "personalInformationButtonNotFound.png");
-            ssHandler.screenshotError();
-        }
+        customWait.waitUntilElementIsVisibleAndClickable(personalInformationButton,"personalInformationButtonNotFound");
         WebElement personalInformationButtonElement = driver.findElement(personalInformationButton);
         personalInformationButtonElement.click();
     }
@@ -48,14 +42,7 @@ public class HomePageUser extends HomePage {
      * Clicks on the Logout button
      */
     public void clickOnLogout() {
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(logoutButton));
-            wait.until(ExpectedConditions.elementToBeClickable(logoutButton));
-        } catch (TimeoutException e) {
-            ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "logOutButtonNotFound.png");
-            ssHandler.screenshotError();
-
-        }
+        customWait.waitUntilElementIsVisibleAndClickable(logoutButton,"logOutButtonNotFound");
         WebElement logoutButtonElement = driver.findElement(logoutButton);
         logoutButtonElement.click();
     }
@@ -68,13 +55,7 @@ public class HomePageUser extends HomePage {
      * @return returns true if texts are same, false otherwise
      */
     public boolean checkNameText(String text) {
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(personalName));
-        } catch (TimeoutException e) {
-            ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "nameInputNotFound.png");
-            ssHandler.screenshotError();
-            return false;
-        }
+        customWait.waitUntilElementIsVisible(personalName,"nameInputNotFound");
         WebElement nameElement = driver.findElement(personalName);
         return nameElement.getAttribute("value").equals(text);
     }
@@ -87,13 +68,7 @@ public class HomePageUser extends HomePage {
      * @return returns true if texts are same, false otherwise
      */
     public boolean checkSurnameText(String text) {
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(personalSurname));
-        } catch (TimeoutException e) {
-            ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "surnameInputNotFound.png");
-            ssHandler.screenshotError();
-            return false;
-        }
+        customWait.waitUntilElementIsVisible(personalSurname,"surnameInputNotFound");
         WebElement surnameElement = driver.findElement(personalSurname);
         return surnameElement.getAttribute("value").equals(text);
     }
@@ -106,13 +81,7 @@ public class HomePageUser extends HomePage {
      * @return returns true if texts are same, false otherwise
      */
     public boolean checkPhoneNo(String text) {
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(personalPhoneNo));
-        } catch (TimeoutException e) {
-            ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "phoneNoInputNotFound.png");
-            ssHandler.screenshotError();
-            return false;
-        }
+        customWait.waitUntilElementIsVisible(personalPhoneNo,"phoneNoInputNotFound");
         WebElement phoneElement = driver.findElement(personalPhoneNo);
         return phoneElement.getAttribute("value").equals(text);
     }
@@ -125,13 +94,7 @@ public class HomePageUser extends HomePage {
      * @return returns true if texts are same, false otherwise
      */
     public boolean checkPhoneExtension(String text) {
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(personalPhoneExtension));
-        } catch (TimeoutException e) {
-            ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "phoneExtensionSelectNotFound.png");
-            ssHandler.screenshotError();
-            return false;
-        }
+        customWait.waitUntilElementIsVisible(personalPhoneExtension,"phoneExtensionSelectNotFound");
         WebElement list = driver.findElement(personalPhoneExtension);
         Select select = new Select(list);
         WebElement selection = select.getFirstSelectedOption();
@@ -146,13 +109,7 @@ public class HomePageUser extends HomePage {
      * @return returns true if texts are same, false otherwise
      */
     public boolean checkDateDay(String text) {
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(dateDayInput));
-        } catch (TimeoutException e) {
-            ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "dateDayInputNotFound.png");
-            ssHandler.screenshotError();
-            return false;
-        }
+        customWait.waitUntilElementIsVisible(dateDayInput,"dateDayInputNotFound");
         WebElement dateDayElement = driver.findElement(dateDayInput);
         return dateDayElement.getAttribute("value").equals(text);
     }
@@ -165,13 +122,7 @@ public class HomePageUser extends HomePage {
      * @return returns true if texts are same, false otherwise
      */
     public boolean checkDateMonth(String text) {
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(dateMonthInput));
-        } catch (TimeoutException e) {
-            ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "dateMonthInputNotFound.png");
-            ssHandler.screenshotError();
-            return false;
-        }
+        customWait.waitUntilElementIsVisible(dateMonthInput,"dateMonthInputNotFound");
         WebElement list = driver.findElement(dateMonthInput);
         Select select = new Select(list);
         WebElement selection = select.getFirstSelectedOption();
@@ -186,13 +137,7 @@ public class HomePageUser extends HomePage {
      * @return returns true if texts are same, false otherwise
      */
     public boolean checkDateYear(String text) {
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(dateYearInput));
-        } catch (TimeoutException e) {
-            ScreenshotHandler ssHandler = new ScreenshotHandler(driver, "dateYearInputNotFound.png");
-            ssHandler.screenshotError();
-            return false;
-        }
+        customWait.waitUntilElementIsVisible(dateYearInput,"dateYearInputNotFound");
         WebElement dateYearElement = driver.findElement(dateYearInput);
         return dateYearElement.getAttribute("value").equals(text);
     }
